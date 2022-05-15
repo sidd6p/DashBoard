@@ -3,6 +3,9 @@ const authorEl = document.getElementById('author');
 const timeEl = document.getElementById("time");
 const weatherEl = document.getElementById("weather");
 
+
+
+// BACKGROUND
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
     .then(res => res.json())
     .then(data => {
@@ -16,9 +19,16 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     });
 
 
+
+// WEATHER
 function getweather(latitude, longitude) {
     fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric`)
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw Error("Weather data not available");
+            }
+            return res.json()
+        })
         .then(data => {
             weatherEl.innerHTML = `
                                     <div>
@@ -34,6 +44,9 @@ function getweather(latitude, longitude) {
                                         Wind: ${data.wind.speed} m/s
                                     </div>
                                 `
+        })
+        .catch(error => {
+            weatherEl.innerHTML = error;
         })
 }
 
@@ -52,6 +65,9 @@ else {
     weatherEl.innerText = 'Unable to Access Location';
 }
 
+
+
+// TIME
 function getTime() {
     const date = new Date();
     timeEl.innerHTML = `
@@ -60,6 +76,9 @@ function getTime() {
 }
 
 setInterval(getTime, 1000);
+
+
+
 
 
 // console.log(date);
