@@ -2,5 +2,6 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     .then(res => res.json())
     .then(data => {
         console.log(data.urls.small);
-        document.body.style.background  = `url(${data.urls.full})`;
+        document.body.style.background  = `url(${data.urls.regular})`;
+        document.getElementById('author').textContent = `By: ${data.user.username}`;
     });

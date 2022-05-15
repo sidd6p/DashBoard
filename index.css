@@ -1,12 +1,30 @@
+* {
+    box-sizing: border-box;
+}  
+
 html, body {
     margin: 0;
     padding: 0;
 }
 
 body {
+    color: white;
+    text-shadow: 1px 1px 2px #474747;
     background: no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+#main {
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#time {
+    align-self: center;
 }
