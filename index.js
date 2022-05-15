@@ -32,16 +32,10 @@ function getweather(latitude, longitude) {
         .then(data => {
             weatherEl.innerHTML = `
                                     <div>
-                                        Temperature: ${data.main.temp} C
+                                        <img src='http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png'>
                                     </div>
                                     <div>
-                                        Humidity: ${data.main.humidity} %
-                                    </div>
-                                    <div>
-                                        Pressure: ${data.main.pressure} hPa
-                                    </div>
-                                    <div>
-                                        Wind: ${data.wind.speed} m/s
+                                       ${data.main.temp} <sup>o</sup>C
                                     </div>
                                 `
         })
@@ -99,3 +93,14 @@ setInterval(getTime, 1000);
 //     .catch(error => {
 //         console.log(error);
 //     })
+
+
+/* <div>
+    Humidity: ${data.main.humidity} %
+</div>
+<div>
+    Pressure: ${data.main.pressure} hPa
+</div>
+<div>
+    Wind: ${data.wind.speed} m/s
+</div> */

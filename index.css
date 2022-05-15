@@ -14,7 +14,7 @@ body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: 0px 0px 20px #242424;
-    font-size: larger;
+    font-size: x-large;
 }
 
 #main {
@@ -27,8 +27,14 @@ body {
 
 #time {
     align-self: center;
+    font-size: xxx-large;
 }
 
-#time {
-    font-size: xxx-large;
+#weather {
+    display: flex;
+    align-items: center;
+}
+
+#author {
+    font-size: small;
 }
